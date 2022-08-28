@@ -1,0 +1,14 @@
+(ariang) {
+	route {
+		handle /jsonrpc {
+			reverse_proxy http://localhost:6800
+		}
+		handle / {
+			try_files /out/index.html
+            file_server
+		}
+        handle {
+            error "Not Found" 404
+        }
+	}
+}
